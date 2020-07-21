@@ -41,9 +41,26 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age){
+    let stomach = [];
+  }
+  // Person.prototype.eat = function () {
+  //   console.log 'some food'
+    
+  // };
 }
+Person.prototype.eat = function () {
+  console.log 'some food'
+  
+};
 
+Person.prototype.poop = function () {
+
+};
+
+Person.prototype.toSting = function () {
+console.log(`${name}, ${age}`)
+}; 
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -59,6 +76,10 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon){
+    this.tank = 0;
+    this.odometer = 0; 
+  };
 
 }
 
@@ -75,8 +96,16 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+    constructor(attrs){
+      this.name = attrs.name, 
+      this.age = attrs.age, 
+      this.location = attrs.location, 
+    }
+};
 
-}
+Lambdasian.prototype.speak = function () {
+  return `Hello my name is ${this.name}, and I from ${this.location}`
+};
 
 /*
   TASK 4
@@ -92,9 +121,23 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(attrs) {
+    super(attrs);
+    this.specialty = attrs.specialty;
+    this.favLanguage = attrs.favLanguage; 
+    this.catchPhrase = attrs.catchPhrase; 
+  }
 
-}
+demo(`subject`) {
+  return ` Today we are learning about ${subject} where subject is the parm passed in.`
+};
+
+grade(student, `subject`) {
+  return `${student.name} receives a perfect score on ${subject}`
+};
+
+};
 
 /*
   TASK 5
@@ -111,7 +154,25 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student  extends Lambdasian {
+  constructor(attrs2) {
+    super(attr2);
+    this.previousBackground = attrs2.previousBackground ; 
+    this.className = attrs2.className; 
+    this.favSubjects =  attrs2.favSubjects;
+  };
+
+  listSubjects() {
+    return  // help 
+  };
+
+  PRAssignment() {
+    return `${student.name} has submitted a PR for ${subject}`
+  };
+
+  sprintChallenge() {
+    return `{student.name} has begun sprint challenge on ${subject}`
+  }
 
 }
 
@@ -128,8 +189,20 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(attrs3) {
+    super(attrs3) {
+      this.gradClassName = attrs3.gradClassName; 
+      this.favInstructor = attrs3.favInstructor; 
+    }
+  };
+};
 
+standUp() {
+  return `${name} announces to ${channel}, @channel standy times!`
+}
+debugsCode() {
+  return `${name} debugs ${student.name}'s code on ${subject}`
 }
 
 /*
